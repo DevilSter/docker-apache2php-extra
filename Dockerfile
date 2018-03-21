@@ -1,4 +1,4 @@
-ARG PHP_VER=7.0
+ARG PHP_VER=5.6
 FROM devilster/apache2-php:${PHP_VER}
 
 LABEL maintainer="Devil.Ster.1"
