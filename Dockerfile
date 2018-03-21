@@ -37,8 +37,8 @@ RUN mkdir /tmp/phpredis && \
     make && \
     make install && \
     echo "extension=redis.so" > /etc/php/${PHP_VER}/mods-available/redis.ini && \
-    ln -s /etc/php/${PHP_VER}/mods-available/redis.ini /etc/php/5.6/apache2/conf.d/redis.ini && \
-    ln -s /etc/php/${PHP_VER}/mods-available/redis.ini /etc/php/5.6/cli/conf.d/redis.ini && \
+    ln -s /etc/php/${PHP_VER}/mods-available/redis.ini /etc/php/${PHP_VER}/apache2/conf.d/redis.ini && \
+    ln -s /etc/php/${PHP_VER}/mods-available/redis.ini /etc/php/${PHP_VER}/cli/conf.d/redis.ini && \
     rm -fr /tmp/phpredis
 # END Install Redis Support For PHP
 
@@ -48,7 +48,7 @@ RUN mkdir /tmp/zf1 && \
     wget https://github.com/zendframework/zf1/releases/download/release-1.12.20/ZendFramework-1.12.20-minimal.tar.gz && \
     tar -xvzf ZendFramework-1.12.20-minimal.tar.gz && \
     cp -R ZendFramework-1.12.20-minimal /usr/local/lib/ZendFramework1 && \
-    sed -e 's/;include_path = ".:\/usr\/share\/php"/include_path = ".:\/usr\/local\/lib\/ZendFramework1\/library"/' -i /etc/php/5.6/apache2/php.ini && \
+    sed -e 's/;include_path = ".:\/usr\/share\/php"/include_path = ".:\/usr\/local\/lib\/ZendFramework1\/library"/' -i /etc/php/${PHP_VER}/apache2/php.ini && \
     rm -fr /tmp/zf1
 # END Install ZF1 Support
 
